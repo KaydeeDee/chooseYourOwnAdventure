@@ -86,7 +86,7 @@ const ghostNumberGuessing = () => {
 //to the left - 3
 const backwardsSpelling = () => {
     alert('You see a spooky cottage up ahead. Go inside...if you dare.');
-    const userSpellingBackwards = prompt(`A spooky witch pops out and asks you to spell type 'Cats like to party' backwards. You only have one shot!`);
+    const userSpellingBackwards = prompt(`A spooky witch pops out and asks you to type 'Cats like to party' backwards. You only have one shot!`);
 
     // turning the string into an array to reverse it
     const cleanedUpUserSpellingBackwards = userSpellingBackwards.toLowerCase().split('');
@@ -96,9 +96,6 @@ const backwardsSpelling = () => {
     const backwardsString = reversedArray.join('');
     console.log(backwardsString);
 
-    // if (cleanedUpUserSpellingBackwards === reversedString) {
-    //     c
-    // }
 };
 
 
