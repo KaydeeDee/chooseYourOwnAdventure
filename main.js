@@ -1,9 +1,11 @@
-// global variable holding user name
+// global variable holding user name used across adventure
 let userName;
 
 // general greeting - 1
 const userNameGreeting = () => {
+    // get users name
     userName = prompt(`Hello Brave Traveller. What's your name?`).trim();
+    // if user does not give you their name, generate a random one
     if (!userName) {
         randomNameGenerator();
     }
@@ -11,7 +13,7 @@ const userNameGreeting = () => {
     crossRoadsPrimary();
 }
 
-// generate random name if user does not provide one
+// generates random name if user does not provide one
 const randomNameGenerator = () => {
     names = [
         'Pillow MoonFace',
@@ -20,8 +22,8 @@ const randomNameGenerator = () => {
         'Hotdog'
     ]
 
-    const randomNumberForName = Math.round(Math.floor(Math.random() * names.length));
-    console.log(randomNumberForName);
+    // random number for name array
+    const randomNumberForName = Math.floor(Math.round(Math.random() * names.length));
 
     const fakeUserName = names[randomNumberForName];
 
@@ -58,10 +60,9 @@ const crossRoadsPrimary = () => {
 const ghostNumberGuessing = () => {
     alert(`There's a spooky house up ahead. Let's go inside.`);
 
-    let userNumberGuess = prompt(`Boo! The friendly neighbourhood ghost came out to play! He loves playing games. If you can guess what number he's thinking of between 0 and 3, he'll let you pass!`);
+    ghostNumberGuest = Math.floor(Math.round(Math.random() * 3));
 
-    ghostNumberGuest = Math.round(Math.floor(Math.random() * 3));
-    console.log(ghostNumberGuest);
+    let userNumberGuess = prompt(`Boo! The friendly neighbourhood ghost came out to play! He loves playing games. If you can guess what number he's thinking of between 0 and 3, he'll let you pass!`);
 
     if (!userNumberGuess || userNumberGuess != ghostNumberGuest) {
         userNumberGuess = prompt('Oh no, try again!');
@@ -85,13 +86,14 @@ const ghostNumberGuessing = () => {
 // witch backwards spelling game
 const backwardsSpelling = () => {
     alert('You see a deserted cottage up ahead. Let\'s check out what\'s inside - what can go wrong?');
+
+
     const userSpellingBackwards = prompt(`A spooky witch pops out and asks you to type 'Cats like to party' backwards. You only have one shot!`).trim();
 
-    // original string
+    // original answer string
     const ogString = 'cats like to party'.split('').reverse().join('');
-    console.log(ogString);
 
-    // lower casing user response 
+    // lower casing user response
     const cleanedUpUserSpellingBackwards = userSpellingBackwards.toLowerCase();
 
     if (!userSpellingBackwards || cleanedUpUserSpellingBackwards != ogString) {
@@ -124,6 +126,6 @@ const toTheLeft = () => {
 }
 
 
-$(window).on("load", function () {
+$(function() {
     userNameGreeting();
 });
